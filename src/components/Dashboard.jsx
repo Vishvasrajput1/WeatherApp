@@ -1,14 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { fetchWeatherApi } from 'openmeteo';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 import Toggle from '../common/Toggle';
+import { useTheme } from '../context/useTheme';
+import { tomorrosDate } from '../utils/helper';
 import { TodayWeather } from './TodayWeather';
-import { getTodaysOvewerview, tomorrosDate } from '../utils/helper';
 import { TomorrowWeather } from './TomorrowWeather';
 import { WeekWeather } from './WeekWeather';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useTheme } from '../context/useTheme';
-import RainChancesChart from '../common/RainChancesChart';
-import OtherCities from '../common/OtherCities';
 
 export const Dashboard = ({ city }) => {
   const { theme } = useTheme();
@@ -47,7 +44,6 @@ export const Dashboard = ({ city }) => {
         );
       }
       const data = await response.json();
-      console.log('data: ', data);
       setWeatherData(data);
       setLoading(false);
     };

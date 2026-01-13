@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-// import cloudImage from '../assets/cloudy.png';
-import sunnyIcon from '../assets/cloudy.png';
-import cloudyIcon from '../assets/cloudy.png';
-import windyIcon from '../assets/Windy 1.png';
+import { useState } from 'react';
+import { IoLocationOutline } from 'react-icons/io5';
+import {
+  default as cloudyIcon,
+  default as sunnyIcon,
+} from '../assets/cloudy.png';
 import rainyIcon from '../assets/Rainy (2) 2.png';
 import showerIcon from '../assets/Rainy-Sunny (2) 1.png';
-import snowyIcon from '../assets/RAINY-SUNNY 1.png';
-import { IoLocationOutline } from 'react-icons/io5';
-import ToggleUnit from './ToggleUnit';
+import windyIcon from '../assets/Windy 1.png';
 import { useTheme } from '../context/useTheme';
 import { celsiusToFahrenheit } from '../utils/helper';
+import ToggleUnit from './ToggleUnit';
 
 export const WeatherOverviewCard = ({ data, city }) => {
   const getIconForWeather = (iconType) => {

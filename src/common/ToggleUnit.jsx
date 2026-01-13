@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { useTheme } from '../context/useTheme';
 
 const ToggleUnit = ({ value, onChange }) => {
@@ -8,7 +8,6 @@ const ToggleUnit = ({ value, onChange }) => {
   const bgClass = isDarkMode ? 'bg-green-500' : 'bg-indigo-500';
 
   const [activeIndex, setActiveIndex] = useState(value === 'F' ? 0 : 1);
-
 
   const handleClick = (unit) => {
     onChange?.(unit);

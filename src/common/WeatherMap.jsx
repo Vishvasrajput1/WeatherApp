@@ -2,7 +2,6 @@ import { MapContainer, TileLayer, LayersControl, useMap } from 'react-leaflet';
 import { useEffect } from 'react';
 import 'leaflet/dist/leaflet.css';
 
-/* 🔁 Recenter map when city changes */
 const RecenterMap = ({ lat, lon }) => {
   const map = useMap();
 
@@ -38,13 +37,11 @@ const WeatherMap = ({ selectedCity }) => {
           width: '100%',
         }}
       >
-        {/* Base map */}
         <TileLayer
           url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
           attribution='&copy; OpenStreetMap &copy; CARTO'
         />
 
-        {/* Auto recenter */}
         <RecenterMap lat={lat} lon={lon} />
 
         <LayersControl position='topright' collapsed={false}>

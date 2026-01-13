@@ -25,7 +25,6 @@ export const HourPole = ({ data, isWeek = false, weatherCode, icon }) => {
     }
   };
 
-  // For week view - card style with separator
   if (isWeek) {
     const dayName = data?.lable?.toUpperCase() || '';
     const temperature = data?.temperature || data?.value?.split(' ')[0] || '';
@@ -52,7 +51,6 @@ export const HourPole = ({ data, isWeek = false, weatherCode, icon }) => {
     );
   }
 
-  // Original hourly view
   return (
     <div className='flex flex-col items-center justify-between gap-4 border hour-pole p-2 rounded-full py-4 shrink-0'>
       <span className='text-xs'>{data.lable}</span>

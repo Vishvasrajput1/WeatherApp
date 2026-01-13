@@ -15,9 +15,8 @@ const OtherCities = ({ city, isWeek = false }) => {
   const { theme } = useTheme();
   const [nearbyCities, setNearbyCities] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [unit, setUnit] = useState('C'); // Get from context or prop if needed
+  const [unit, setUnit] = useState('C');
 
-  // Get icon based on weather type
   const getIconForWeather = (iconType) => {
     switch (iconType) {
       case 'sunny':
@@ -35,7 +34,6 @@ const OtherCities = ({ city, isWeek = false }) => {
     }
   };
 
-  // Convert temperature based on unit
   const convertTemp = (temp) => {
     if (!temp) return '';
     const val = parseFloat(temp);
@@ -46,10 +44,8 @@ const OtherCities = ({ city, isWeek = false }) => {
     return `${Math.round(val)}°C`;
   };
 
-  // Get nearby cities by offsetting coordinates
   const getNearbyCities = async (baseLat, baseLon) => {
-    // Define offsets for nearby cities (in degrees)
-    // Approximately 1 degree ≈ 111 km, using smaller offsets for closer cities
+
     const offsets = [
       { lat: 0.3, lon: 0.3 }, // ~33km northeast
       { lat: -0.3, lon: 0.3 }, // ~33km southeast
@@ -62,13 +58,11 @@ const OtherCities = ({ city, isWeek = false }) => {
       const lon = baseLon + offset.lon;
 
       try {
-        // Get city name from reverse geocoding
         const geoResponse = await fetch(
           `http://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&appid=${APIkey}`
         );
         const geoData = await geoResponse.json();
 
-        // Get weather data
         const weatherResponse = await fetch(
           `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weathercode&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=auto`
         );
@@ -104,7 +98,6 @@ const OtherCities = ({ city, isWeek = false }) => {
     });
 
     const cities = await Promise.all(citiesPromises);
-    // Filter out nulls and duplicates, limit to 4 cities
     const uniqueCities = cities.filter(
       (city, index, self) =>
         city !== null &&
@@ -139,7 +132,6 @@ const OtherCities = ({ city, isWeek = false }) => {
     <div className='w-full  rounded-2xl p-4 space-y-4'>
       <div className='flex justify-between items-center'>
         <h2 className='text-lg font-medium'>Other Cities</h2>
-        {/* <span className='text-xs text-secondary cursor-pointer'>See All</span> */}
       </div>
       {loading ? (
         <div className='flex items-center justify-center py-8'>

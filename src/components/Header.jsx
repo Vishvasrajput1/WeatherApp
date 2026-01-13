@@ -5,7 +5,6 @@ import { IoLocationOutline } from 'react-icons/io5';
 
 import { useTheme } from '../context/useTheme';
 import WeatherCitySearch from '../common/WeatherCitySearch';
-// import '@geoapify/geocoder-autocomplete/styles/minimal.css';
 
 export const Header = ({ city, setCity }) => {
   const { theme } = useTheme();

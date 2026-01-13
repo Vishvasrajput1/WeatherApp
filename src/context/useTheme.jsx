@@ -3,7 +3,6 @@ import React, { createContext, useContext, useEffect, useState } from 'react';
 const ThemeContext = createContext(undefined);
 
 export const ThemeProvider = ({ children }) => {
-  // Initialize state from localStorage or system preference
   const [theme, setTheme] = useState(() => {
     const saved = localStorage.getItem('app-theme');
     if (saved) return saved;
@@ -17,7 +16,6 @@ export const ThemeProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // Apply theme to the root element for CSS variables to work
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('app-theme', theme);
   }, [theme]);

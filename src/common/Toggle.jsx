@@ -57,15 +57,10 @@ const Toggle = ({
         isDarkMode ? ' text-white' : 'text-black'
       } relative overflow-hidden w-fit`}
     >
-      {/* highlight bar */}
       <div
         className=''
-        // style={{
-        //   width: `${dimensions.width}px`,
-        //   transform: `translateX(${dimensions.transform}px)`,
-        // }}
+
       />
-      {/* buttons */}
       {options.map((option, index) => {
         const Tag = option?.url ? Link : 'button';
         const params = {
