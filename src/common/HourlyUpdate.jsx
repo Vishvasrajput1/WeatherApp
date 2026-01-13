@@ -4,38 +4,19 @@ import {
   getDayLength,
   getHourlyWeather,
   getHourlyWeatherForTomorrow,
+  getIconForWeather,
   getWeatherIconFromRain,
 } from '../utils/helper';
 import { HourPole } from './HourPole';
-import sunnyIcon from '../assets/cloudy.png';
-import cloudyIcon from '../assets/cloudy.png';
-import windyIcon from '../assets/Windy 1.png';
-import rainyIcon from '../assets/Rainy (2) 2.png';
-import showerIcon from '../assets/Rainy-Sunny (2) 1.png';
-import snowyIcon from '../assets/RAINY-SUNNY 1.png';
+
 export const HourlyUpdate = ({ data, city, isTomorrow = false }) => {
   const hourlyWeather = isTomorrow
     ? getHourlyWeatherForTomorrow(data)
     : getHourlyWeather(data);
-  const getIconForWeather = (iconType) => {
-    switch (iconType) {
-      case 'sunny':
-        return sunnyIcon;
-      case 'shower':
-      case 'partly-cloudy':
-        return showerIcon;
-      case 'rainy':
-      case 'thunderstorm':
-        return rainyIcon;
-      case 'windy':
-        return windyIcon;
-      default:
-        return cloudyIcon;
-    }
-  };
+
   return (
     <div
-      className={`card-bg w-full h-full p-4 rounded-2xl gap-3 grid grid-cols-2`}
+      className={`card-bg w-full h-full p-4 rounded-2xl gap-3 grid xl:grid-cols-2 grid-cols-1`}
     >
       <div className='space-y-4 '>
         <h2 className='text-2xl'>{isTomorrow ? 'Tomorrow' : 'Today'}</h2>
@@ -47,11 +28,11 @@ export const HourlyUpdate = ({ data, city, isTomorrow = false }) => {
           </div>
         </div>
 
-        <div className='child-card-bg p-3 flex items-center justify-between rounded-2xl'>
+        <div className='child-card-bg xl:p-3 p-2 flex items-center justify-between rounded-2xl'>
           <div>
             <span>Tomorrow</span>
           </div>
-          <div className='text-3xl'>
+          <div className='text-xl xl:text-3xl'>
             {data?.daily?.temperature_2m_max[isTomorrow ? 0 : 1]}
             {data?.daily_units?.temperature_2m_max}
           </div>
@@ -81,7 +62,7 @@ export const HourlyUpdate = ({ data, city, isTomorrow = false }) => {
               .map((item, index) => (
                 <span
                   key={index}
-                  className={`${index === 0 ? 'text-3xl' : '2xl'}`}
+                  className={`${index === 0 ? 'xl:text-3xl' : 'xl:text-2xl'} text-xl`}
                 >
                   {item}
                 </span>
@@ -100,7 +81,7 @@ export const HourlyUpdate = ({ data, city, isTomorrow = false }) => {
               .map((item, index) => (
                 <span
                   key={index}
-                  className={`${index === 0 ? 'text-3xl' : '2xl'}`}
+                  className={`${index === 0 ? 'xl:text-3xl' : 'xl:text-2xl'} text-xl`}
                 >
                   {item}
                 </span>
@@ -108,9 +89,9 @@ export const HourlyUpdate = ({ data, city, isTomorrow = false }) => {
           </div>
         </div>
 
-        <div className='space-y-2'>
+        <div className='space-y-2 '>
           <span className='text-base'>Day Length</span>
-          <div className='text-3xl'>
+          <div className='text-xl xl:text-3xl'>
             {getDayLength(data?.daily?.sunrise[0], data?.daily?.sunset[0])}
           </div>
         </div>

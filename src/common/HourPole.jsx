@@ -1,30 +1,6 @@
-import React from 'react';
-import sunnyIcon from '../assets/cloudy.png';
-import cloudyIcon from '../assets/cloudy.png';
-import windyIcon from '../assets/Windy 1.png';
-import rainyIcon from '../assets/Rainy (2) 2.png';
-import showerIcon from '../assets/Rainy-Sunny (2) 1.png';
-import snowyIcon from '../assets/RAINY-SUNNY 1.png';
-import { getWeatherIcon } from '../utils/helper';
+import { getIconForWeather, getWeatherIcon } from '../utils/helper';
 
 export const HourPole = ({ data, isWeek = false, weatherCode, icon }) => {
-  const getIconForWeather = (iconType) => {
-    switch (iconType) {
-      case 'sunny':
-        return sunnyIcon;
-      case 'shower':
-      case 'partly-cloudy':
-        return showerIcon;
-      case 'rainy':
-      case 'thunderstorm':
-        return rainyIcon;
-      case 'windy':
-        return windyIcon;
-      default:
-        return cloudyIcon;
-    }
-  };
-
   if (isWeek) {
     const dayName = data?.lable?.toUpperCase() || '';
     const temperature = data?.temperature || data?.value?.split(' ')[0] || '';

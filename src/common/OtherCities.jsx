@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import sunnyIcon from '../assets/Sunny (2) 2.png';
-import cloudyIcon from '../assets/cloudy.png';
-import windyIcon from '../assets/Windy 1.png';
-import rainyIcon from '../assets/Rainy (2) 2.png';
+
 import {
   getWeatherDescription,
   getWeatherIcon,
   celsiusToFahrenheit,
+  getIconForWeather,
 } from '../utils/helper';
 import { useTheme } from '../context/useTheme';
 const APIkey = import.meta.env.VITE_APP_OPENWEATHER_API_KEY;
@@ -16,23 +14,6 @@ const OtherCities = ({ city, isWeek = false }) => {
   const [nearbyCities, setNearbyCities] = useState([]);
   const [loading, setLoading] = useState(true);
   const [unit, setUnit] = useState('C');
-
-  const getIconForWeather = (iconType) => {
-    switch (iconType) {
-      case 'sunny':
-        return sunnyIcon;
-      case 'cloudy':
-      case 'partly-cloudy':
-        return cloudyIcon;
-      case 'rainy':
-      case 'thunderstorm':
-        return rainyIcon;
-      case 'windy':
-        return windyIcon;
-      default:
-        return cloudyIcon;
-    }
-  };
 
   const convertTemp = (temp) => {
     if (!temp) return '';
@@ -45,7 +26,6 @@ const OtherCities = ({ city, isWeek = false }) => {
   };
 
   const getNearbyCities = async (baseLat, baseLon) => {
-
     const offsets = [
       { lat: 0.3, lon: 0.3 }, // ~33km northeast
       { lat: -0.3, lon: 0.3 }, // ~33km southeast
@@ -127,9 +107,8 @@ const OtherCities = ({ city, isWeek = false }) => {
     fetchNearbyCities();
   }, [city]);
 
-
   return (
-    <div className='w-full  rounded-2xl p-4 space-y-4'>
+    <div className='w-full  rounded-2xl px-4 space-y-4'>
       <div className='flex justify-between items-center'>
         <h2 className='text-lg font-medium'>Other Cities</h2>
       </div>

@@ -74,9 +74,8 @@ const SpeedometerChart = ({ data, isWeek = false }) => {
 
   const ArcValueIndicator = ({ width, height }) => {
     const cx = width / 2;
-    const cy = height * 0.9; // Must match Pie's cy
+    const cy = height * 0.9;
 
-    // Calculate position for the dot
     const chartRadius = Math.min(width / 2, height * 0.9);
     const r = chartRadius * 0.9; // Position between inner/outer radius
 
@@ -114,7 +113,9 @@ const SpeedometerChart = ({ data, isWeek = false }) => {
       <ResponsiveContainer
         width='100%'
         height='100%'
-        maxHeight={window.innerWidth < 1024 ? 100 : 120}
+        maxHeight={
+          window.innerWidth > 1440 ? 120 : window.innerWidth >= 1024 ? 100 : 80
+        }
       >
         <PieChart>
           <defs>

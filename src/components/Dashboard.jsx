@@ -6,6 +6,7 @@ import { tomorrosDate } from '../utils/helper';
 import { TodayWeather } from './TodayWeather';
 import { TomorrowWeather } from './TomorrowWeather';
 import { WeekWeather } from './WeekWeather';
+import WeatherDashboardSkeleton from '../skeletons/WeatherDashboardSkeleton';
 
 export const Dashboard = ({ city }) => {
   const { theme } = useTheme();
@@ -52,7 +53,7 @@ export const Dashboard = ({ city }) => {
 
   return (
     <div className='flex flex-col gap-7.5 h-auto w-full'>
-      <div className='flex items-center justify-between py-2'>
+      <div className='flex items-center justify-between'>
         <Toggle
           options={tabs}
           activeIndex={activeIndex}
@@ -61,15 +62,7 @@ export const Dashboard = ({ city }) => {
       </div>
 
       {loading ? (
-        <div className='flex flex-1 items-center justify-center min-h-[50vh]'>
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ repeat: Infinity, duration: 1, ease: 'linear' }}
-            className={`w-10 h-10 border-4 ${
-              isDarkMode ? 'border-green-700' : 'border-blue-500'
-            } border-t-transparent rounded-full`}
-          />
-        </div>
+        <WeatherDashboardSkeleton isWeek={activeTab.title === 'Next 7days'} />
       ) : (
         <div className='flex-1 w-full'>
           <AnimatePresence mode='wait'>

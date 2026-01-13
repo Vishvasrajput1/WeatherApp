@@ -33,7 +33,7 @@ const RainChancesChart = ({ data, height = 250, isWeek = false }) => {
           }`}
         >
           <p className='font-bold mb-1'>
-            {isWeek ? dataPoint.fullName : label}
+            {isWeek ? dataPoint?.fullName : label}
           </p>
           <p className='text-sm'>
             Status:{' '}

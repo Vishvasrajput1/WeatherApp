@@ -70,11 +70,11 @@ export const Layout = ({ children }) => {
 
   return (
     <>
-      <div className='flex flex-col h-screen overflow-hidden bg-(--bg-color) text-(--text-color)'>
+      <div className='flex flex-col gap-7.5 h-screen overflow-hidden bg-(--bg-color) text-(--text-color)'>
         <div className='sticky top-0 z-50 w-full p-4 pb-0 bg-(--bg-color)'>
           <Header city={city} setCity={setCity} />
         </div>
-        <div className='flex-1 p-4 overflow-y-auto overflow-x-hidden'>
+        <div className='flex-1 px-4 overflow-y-auto overflow-x-hidden'>
           {isRootPath ? <Dashboard city={city} /> : children || <Outlet />}
         </div>
       </div>
