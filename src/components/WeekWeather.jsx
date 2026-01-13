@@ -3,13 +3,10 @@ import {
   formatHourlyTime,
   getDailyWeather,
   getDayNameFromDate,
+  getIconForWeather,
   getWeatherIcon,
 } from '../utils/helper';
-import sunnyIcon from '../assets/Sunny (2) 2.png';
-import cloudyIcon from '../assets/cloudy.png';
-import windyIcon from '../assets/Windy 1.png';
-import rainyIcon from '../assets/Rainy (2) 2.png';
-import snowyIcon from '../assets/RAINY-SUNNY 1.png';
+
 import { HourPole } from '../common/HourPole';
 import { TodayOverview } from '../common/TodayOverview';
 import RainChancesChart from '../common/RainChancesChart';
@@ -17,22 +14,6 @@ import OtherCities from '../common/OtherCities';
 import WeatherMap from '../common/WeatherMap';
 
 export const WeekWeather = ({ data, city }) => {
-  const getIconForWeather = (iconType) => {
-    switch (iconType) {
-      case 'sunny':
-        return sunnyIcon;
-      case 'cloudy':
-      case 'partly-cloudy':
-        return cloudyIcon;
-      case 'rainy':
-      case 'thunderstorm':
-        return rainyIcon;
-      case 'windy':
-        return windyIcon;
-      default:
-        return cloudyIcon;
-    }
-  };
   const dailyWeather = getDailyWeather(data);
   return (
     <div className='flex flex-col gap-7.5 w-full h-full'>

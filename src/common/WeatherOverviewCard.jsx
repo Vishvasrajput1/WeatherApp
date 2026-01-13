@@ -1,33 +1,11 @@
 import { useState } from 'react';
 import { IoLocationOutline } from 'react-icons/io5';
-import {
-  default as cloudyIcon,
-  default as sunnyIcon,
-} from '../assets/cloudy.png';
-import rainyIcon from '../assets/Rainy (2) 2.png';
-import showerIcon from '../assets/Rainy-Sunny (2) 1.png';
-import windyIcon from '../assets/Windy 1.png';
+
 import { useTheme } from '../context/useTheme';
-import { celsiusToFahrenheit } from '../utils/helper';
+import { celsiusToFahrenheit, getIconForWeather } from '../utils/helper';
 import ToggleUnit from './ToggleUnit';
 
 export const WeatherOverviewCard = ({ data, city }) => {
-  const getIconForWeather = (iconType) => {
-    switch (iconType) {
-      case 'sunny':
-        return sunnyIcon;
-      case 'shower':
-      case 'partly-cloudy':
-        return showerIcon;
-      case 'rainy':
-      case 'thunderstorm':
-        return rainyIcon;
-      case 'windy':
-        return windyIcon;
-      default:
-        return cloudyIcon;
-    }
-  };
   const { theme } = useTheme();
   const isDarkMode = theme === 'dark';
   const [unit, setUnit] = useState('C');

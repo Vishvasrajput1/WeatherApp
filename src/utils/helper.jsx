@@ -1,3 +1,11 @@
+import sunnyIcon from '../assets/images/sunny-icon.png';
+import cloudyIcon from '../assets/images/cloudy-icon.png';
+import windyIcon from '../assets/images/windy-icon.png';
+import showerIcon from '../assets/images/shower-icon.png';
+import rainyIcon from '../assets/images/rainy-icon.png';
+import partlyCloudyIcon from '../assets/images/partly-cloudy-icon.png';
+import heavyShowerIcon from '../assets/images/heavy-shower-icon.png';
+
 export const formatTime = (time) => {
   return new Date(time).toLocaleString('en-US', {
     hour: 'numeric',
@@ -161,7 +169,7 @@ export const getRainChances = (data) => {
 export const getRainChancesForWeek = (data) => {
   const rainchances = data?.daily?.rain_sum?.map((rain, index) => ({
     name: getDayNameFromDate(data?.daily?.time[index]),
-    fullName: getDayNameFromDate(data?.daily?.time[(index, true)]),
+    fullName: getDayNameFromDate(data?.daily?.time[index], true),
     mm: rain,
     value: getRainLevel(rain),
     originalValue: rain,
@@ -224,7 +232,7 @@ export const getWeatherIcon = (weatherCode) => {
 export const getWeatherIconFromRain = (mm) => {
   if (mm <= 0) return 'sunny';
   if (mm < 2.5) return 'shower';
-  if (mm >= 2.5 && mm <= 7.6) return 'partly-cloudy';
+  if (mm >= 2.5 && mm <= 7.6) return 'heavy-shower';
   if (mm > 7.6 && mm <= 50) return 'rainy';
   if (mm > 50) return 'thunderstorm';
   return 'cloudy';
@@ -263,3 +271,23 @@ export const getRainLevelFromWeatherCode = (weatherCode) => {
 };
 
 export const formatRainTick = (value) => RAIN_LEVELS[value] || '';
+
+export const getIconForWeather = (iconType) => {
+  switch (iconType) {
+    case 'sunny':
+      return sunnyIcon;
+    case 'shower':
+      return showerIcon;
+    case 'heavy-shower':
+      return heavyShowerIcon;
+    case 'partly-cloudy':
+      return partlyCloudyIcon;
+    case 'rainy':
+    case 'thunderstorm':
+      return rainyIcon;
+    case 'windy':
+      return windyIcon;
+    default:
+      return cloudyIcon;
+  }
+};

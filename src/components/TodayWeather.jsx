@@ -5,6 +5,8 @@ import { getTodaysOvewerview } from "../utils/helper";
 import { TodayOverview } from "../common/TodayOverview";
 import OtherCities from "../common/OtherCities";
 
+
+
 export const TodayWeather = ({ city, data }) => {
   return (
     <div className="flex flex-col xl:flex-row gap-7.5 w-full h-full">
