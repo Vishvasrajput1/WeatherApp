@@ -47,11 +47,9 @@ const SpeedometerChart = ({ data, isWeek = false }) => {
     outerRadius,
     value,
   }) => {
-    // Note: The original image had 7, not 5 and 10 separately, but we use your desiredLabels
     const desiredLabels = [0, 5, 10, 12];
     if (!desiredLabels.includes(value)) return null;
 
-    // Use a fixed radius slightly outside the arc for the text
     const r = innerRadius + (outerRadius - innerRadius) * 0.75;
     const x = cx + r * Math.cos(-midAngle * RADIAN);
     const y = cy + r * Math.sin(-midAngle * RADIAN);
@@ -74,7 +72,6 @@ const SpeedometerChart = ({ data, isWeek = false }) => {
     );
   };
 
-  /* ---------- ARC VALUE INDICATOR (DOT) ---------- */
   const ArcValueIndicator = ({ width, height }) => {
     const cx = width / 2;
     const cy = height * 0.9; // Must match Pie's cy

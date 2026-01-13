@@ -1,12 +1,10 @@
-import { BarChart, Bar, Tooltip } from 'recharts';
-import { RechartsDevtools } from '@recharts/devtools';
+import { Bar, BarChart, Tooltip } from 'recharts';
+import { useTheme } from '../context/useTheme';
 import {
   formatHourlyTime,
   getWindForChart,
   getWindForWeekChart,
 } from '../utils/helper';
-import { useTheme } from '../context/useTheme';
-import { g } from 'framer-motion/client';
 
 const TinyBarChart = ({ data, isWeek = false }) => {
   const { theme } = useTheme();

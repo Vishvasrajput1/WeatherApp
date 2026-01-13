@@ -7,7 +7,6 @@ import {
   getWeatherIconFromRain,
 } from '../utils/helper';
 import { HourPole } from './HourPole';
-// import cloudAndRain from '../assets/clouds-and-sun.png';
 import sunnyIcon from '../assets/cloudy.png';
 import cloudyIcon from '../assets/cloudy.png';
 import windyIcon from '../assets/Windy 1.png';

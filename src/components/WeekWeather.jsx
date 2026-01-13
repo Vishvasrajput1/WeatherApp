@@ -5,7 +5,6 @@ import {
   getDayNameFromDate,
   getWeatherIcon,
 } from '../utils/helper';
-// import SunImage from '../assets/sun_windy.png';
 import sunnyIcon from '../assets/Sunny (2) 2.png';
 import cloudyIcon from '../assets/cloudy.png';
 import windyIcon from '../assets/Windy 1.png';
@@ -37,9 +36,7 @@ export const WeekWeather = ({ data, city }) => {
   const dailyWeather = getDailyWeather(data);
   return (
     <div className='flex flex-col gap-7.5 w-full h-full'>
-      {/* Top Row: Big Card | Daily Strip | Rain Chances */}
       <div className='flex flex-col xl:flex-row gap-7.5 w-full'>
-        {/* Day 0: Big Card (25%) */}
         <div className='w-full xl:w-[25%] rounded-[25px] card-bg font-semibold flex flex-col justify-between'>
           <div className='p-4 child-card-bg flex items-center justify-between rounded-t-[25px]'>
             <span className='text-base'>
@@ -122,7 +119,6 @@ export const WeekWeather = ({ data, city }) => {
           </div>
         </div>
 
-        {/* Days 1-6: Daily Strip (50%) */}
         <div className='w-full xl:w-[50%] grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-3'>
           {dailyWeather?.slice(1, 7).map((item, index) => (
             <HourPole
@@ -137,13 +133,11 @@ export const WeekWeather = ({ data, city }) => {
           ))}
         </div>
 
-        {/* Rain Chances Chart (25%) */}
         <div className='w-full xl:w-[25%] flex flex-col'>
           <RainChancesChart data={data} isWeek />
         </div>
       </div>
 
-      {/* Bottom Row: Widgets | Map | Other Cities */}
       <div className='flex flex-col xl:flex-row gap-7.5 w-full h-full'>
         <div className='w-full xl:w-[50%]'>
           <TodayOverview data={data} isWeek={true} />
