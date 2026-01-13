@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+
+:root {
+  --bg-color: #f2f6f9 ;
+  --text-color: #0f172a;
+  --text-muted: #64748b;
+
+  --card-bg-gradient: radial-gradient(circle, #d1e6f7 0%, #cfe5f6 100%);
+  --card-border: 1px solid #e2e8f0;
+  --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+
+  --child-card-bg:#AECADF;
+
+  --hour-pole-bg: #afcde3;
+  --hour-pole-border: 1px solid #e2e8f0;
+
+  --card-header-bg: #cfe5f6;
+
+  --random-color: #038fda;
+}
+
+[data-theme='dark'] {
+  --bg-color: #0a0a0a;
+  --text-color: #f8fafc;
+  --text-muted: #94a3b8;
+
+  /* --card-bg-gradient: radial-gradient(circle, rgba(45, 94, 12, 1) 0%, #013601 100%); */
+  --card-bg-gradient: radial-gradient(circle, rgba(10, 50, 10, 0.85) 0%, #001f00 100%);
+  --card-border: 1px solid rgba(255, 255, 255, 0.1);
+  --card-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.5);
+
+  --child-card-bg: #091209;
+
+  --hour-pole-bg: #013601;
+  --hour-pole-border: 1px solid #2d5e0c;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.card-bg {
+  background: var(--card-bg-gradient);
+  border: var(--card-border);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease;
+}
+
+.child-card-bg {
+  background-color: var(--child-card-bg);
+}
+
+.hour-pole {
+  background-color: var(--hour-pole-bg);
+  border: var(--hour-pole-border);
+}
+
+.text-secondary {
+  color: var(--text-muted);
+}
+
+
+.hide-scrollbar {
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
+}
+.hide-scrollbar::-webkit-scrollbar { 
+    display: none;  
+}
+
+@keyframes geoapify-places-loading-bounce {
+    0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+    40% { transform: scale(1.2); opacity: 1; }
+}
+
+.leaflet-tile-container {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
