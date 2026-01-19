@@ -1,14 +1,12 @@
 import React from 'react';
 import 'react-loading-skeleton/dist/skeleton.css';
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'; 
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 import { HourlyUpdateSkeleton } from './HourlyUpdateSkeleton';
 import { WeatherOverviewCardSkeleton } from './WeatherOverviewCardSkeleton';
 import { TodayOverviewSkeleton } from './TodayOverviewSkeleton';
 import { OtherCitiesSkeleton } from './OtherCitiesSkeleton';
 
-
 const WeatherDashboardSkeleton = ({ isWeek = false }) => {
-  console.log('isWeek: ', isWeek);
   return (
     <SkeletonTheme
       baseColor='var(--skeleton-bg)'
@@ -17,10 +15,10 @@ const WeatherDashboardSkeleton = ({ isWeek = false }) => {
       {isWeek ? (
         <div className='flex flex-col gap-7.5 w-full h-full'>
           <div className='flex flex-col xl:flex-row gap-7.5 w-full'>
-            <div className='w-full xl:w-[25%] rounded-[25px] card-bg flex flex-col justify-between overflow-hidden'>
-              <div className='p-4 child-card-bg flex items-center justify-between'>
-                <Skeleton width={80} height={20} /> 
-                <Skeleton width={60} height={20} /> 
+            <div className='w-full xl:w-[25%] rounded-[25px] border border-gray-100 skeleton-color flex flex-col justify-between overflow-hidden'>
+              <div className='p-4 border border-gray-100 skeleton-color flex items-center justify-between'>
+                <Skeleton width={80} height={20} />
+                <Skeleton width={60} height={20} />
               </div>
               <div className='p-4 flex-1 flex flex-col justify-center gap-6'>
                 <div className='flex justify-between items-center'>
@@ -42,19 +40,19 @@ const WeatherDashboardSkeleton = ({ isWeek = false }) => {
               {[...Array(6)].map((_, i) => (
                 <div
                   key={i}
-                  className='card-bg rounded-2xl p-4 flex flex-col items-center justify-between gap-4'
+                  className='border border-gray-100 skeleton-color rounded-2xl p-4 flex flex-col items-center justify-between gap-4'
                 >
-                  <Skeleton width={40} height={15} /> 
+                  <Skeleton width={40} height={15} />
                   <Skeleton circle width={40} height={40} />
-                  <Skeleton width={30} height={20} /> 
+                  <Skeleton width={30} height={20} />
                 </div>
               ))}
             </div>
 
             <div className='w-full xl:w-[25%] flex flex-col'>
-              <div className='card-bg rounded-[25px] p-4 h-full'>
+              <div className='border border-gray-100 skeleton-color rounded-[25px] p-4 h-full'>
                 <Skeleton width={120} height={24} className='mb-4' />
-                <Skeleton height={150} width='100%' /> 
+                <Skeleton height={150} width='100%' />
               </div>
             </div>
           </div>
@@ -63,7 +61,7 @@ const WeatherDashboardSkeleton = ({ isWeek = false }) => {
             <TodayOverviewSkeleton isWeek={isWeek} />
 
             <div className='w-full xl:w-[25%] h-full'>
-              <div className='card-bg rounded-2xl p-2 h-full min-h-96'>
+              <div className='border border-gray-100 skeleton-color rounded-2xl p-2 h-full min-h-96'>
                 <Skeleton height='100%' width='100%' borderRadius={20} />
               </div>
             </div>

@@ -64,7 +64,7 @@ export const Dashboard = ({ city }) => {
       {loading ? (
         <WeatherDashboardSkeleton isWeek={activeTab.title === 'Next 7days'} />
       ) : (
-        <div className='flex-1 w-full'>
+        <div className='flex-1 w-full pb-4'>
           <AnimatePresence mode='wait'>
             <motion.div
               key={activeTab.title}

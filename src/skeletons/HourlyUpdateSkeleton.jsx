@@ -2,7 +2,7 @@ import Skeleton from 'react-loading-skeleton';
 
 export const HourlyUpdateSkeleton = () => {
   return (
-    <div className='card-bg w-full h-full p-4 rounded-2xl gap-3 grid grid-cols-2'>
+    <div className='skeleton-color  w-full h-full p-4 rounded-2xl gap-3 grid grid-cols-2'>
       <div className='space-y-4'>
         <div>
           <Skeleton className='h-8 w-32' />
@@ -12,7 +12,7 @@ export const HourlyUpdateSkeleton = () => {
           {[1, 2, 3, 4].map((i) => (
             <div
               key={i}
-              className='flex flex-col items-center justify-between gap-3 border hour-pole p-2 rounded-full py-4 shrink-0 min-w-12.5'
+              className='flex flex-col items-center justify-between gap-3 border skeleton-color  border-gray-100 p-2 rounded-full py-4 shrink-0 min-w-12.5'
             >
               <Skeleton width={30} height={15} />
               <Skeleton circle width={30} height={30} />
@@ -21,14 +21,14 @@ export const HourlyUpdateSkeleton = () => {
           ))}
         </div>
 
-        <div className='child-card-bg p-3 flex items-center justify-between rounded-2xl'>
+        <div className='skeleton-color border border-gray-100  p-3 flex items-center justify-between rounded-2xl'>
           <Skeleton height={20} width={80} />
           <Skeleton width={30} height={30} />
           <Skeleton circle width={80} height={80} />
         </div>
       </div>
 
-      <div className='h-full child-card-bg p-4 rounded-2xl grid grid-cols-1 gap-4'>
+      <div className='h-full skeleton-color  border border-gray-100 p-4 rounded-2xl grid grid-cols-1 gap-4'>
         <div className='space-y-2'>
           <Skeleton className='h-4 w-16' />
           <div className='flex items-center justify-between'>

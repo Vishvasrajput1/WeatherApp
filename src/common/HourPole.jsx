@@ -8,7 +8,7 @@ export const HourPole = ({ data, isWeek = false, weatherCode, icon }) => {
       icon || (weatherCode ? getWeatherIcon(weatherCode) : 'cloudy');
 
     return (
-      <div className='flex flex-col items-center justify-between card-bg rounded-[30px] p-4 py-7.25 shrink-0'>
+      <div className='flex flex-col items-center justify-between card-bg rounded-[30px]  py-6 shrink-0 w-full min-w-0'>
         <div className='flex flex-col items-center w-full'>
           <span className='text-sm font-medium mb-3'>{dayName}</span>
           <div className='w-full border-t border-gray-500/30 mb-3'></div>
@@ -17,10 +17,10 @@ export const HourPole = ({ data, isWeek = false, weatherCode, icon }) => {
           <img
             src={getIconForWeather(data?.icon || weatherIconType)}
             alt='weather'
-            className='w-12 h-12 object-contain'
+            className='w-12.5 h-12.5 object-contain'
           />
         </div>
-        <span className='text-lg font-semibold'>
+        <span className='2xl:text-[32px] text-2xl font-semibold w-full text-center'>
           {data?.value || Math.round(temperature)}
         </span>
       </div>

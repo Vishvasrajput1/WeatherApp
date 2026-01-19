@@ -80,7 +80,7 @@ export const getHourlyWeatherForTomorrow = (data) => {
 export const getDailyWeather = (data) => {
   return data?.daily?.temperature_2m_max?.map((temp, index) => ({
     lable: getDayNameFromDate(data?.daily?.time[index]),
-    value: `${temp} ${data?.daily_units?.temperature_2m_max}`,
+    value: `${Math.round(temp)}${data?.daily_units?.temperature_2m_max === '°C' ? '°' : ''}`,
     temperature: temp,
     weatherCode: data?.daily?.weathercode?.[index],
     date: data?.daily?.time[index],

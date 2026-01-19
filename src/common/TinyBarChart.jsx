@@ -14,7 +14,7 @@ const TinyBarChart = ({ data, isWeek = false }) => {
 
     return (
       <div
-        className='px-3 py-2 rounded-lg text-xs'
+        className='px-3 py-3  rounded-lg text-xs'
         style={{
           backgroundColor: isDark ? '#1f2937' : '#ffffff',
           border: `1px solid ${isDark ? '#374151' : '#e5e7eb'}`,
@@ -44,14 +44,14 @@ const TinyBarChart = ({ data, isWeek = false }) => {
     <div
       className={`w-full ${
         isWeek ? 'card-bg' : 'child-card-bg'
-      } rounded-[15px] 2xl:p-3 p-2 2xl:space-y-3 space-y-2`}
+      } rounded-[15px] 2xl:p-3 p-2 py-3 2xl:space-y-3 space-y-2`}
     >
       <div>Wind Status</div>
       <BarChart
         style={{
           width: '100%',
-          maxWidth: '290px',
-          maxHeight: '100px',
+          maxWidth: '278px',
+          maxHeight: '135px',
           aspectRatio: 1.618,
         }}
         responsive
