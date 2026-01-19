@@ -7,13 +7,17 @@ export const HumidityCard = ({ data, isWeek = false }) => {
     <div
       className={`${
         isWeek ? 'card-bg' : ' child-card-bg '
-      } w-full h-full rounded-[15px] 2xl:p-3 p-2 2xl:space-y-4 space-y-3`}
+      } w-full h-full rounded-[15px] 2xl:p-3 p-2  py-3 space-y-8`}
     >
       <div className='text-base'>Humidity</div>
       <div>
-        <img src={humidityImage} alt='cloud' className='w-20 h-20 mx-auto' />
+        <img
+          src={humidityImage}
+          alt='cloud'
+          className='w-22.5 h-22.5 mx-auto'
+        />
       </div>
-      <div className='flex justify-between 2xl:p-2 p-1'>
+      <div className='flex justify-between  p-1'>
         <span className='text-xl font-semibold'>
           {data?.current?.relative_humidity_2m}
           {data?.hourly_units?.relative_humidity_2m}

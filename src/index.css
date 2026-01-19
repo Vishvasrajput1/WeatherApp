@@ -8,6 +8,8 @@
 
   --skeleton-bg: #e0e0e0;
   --skeleton-highlight: #f5f5f5;
+  --main-skeleton-bg: #c5cacb;
+  --main-border: 1px solid #e2e8f0;
 
   --card-bg-gradient: radial-gradient(circle, #d1e6f7 0%, #cfe5f6 100%);
   --card-border: 1px solid #e2e8f0;
@@ -30,6 +32,8 @@
 
    --skeleton-bg: #444444;
   --skeleton-highlight: #666666;
+  --main-skeleton-bg: #6b6d6b;
+  --main-border: 1px solid #5c5d5c;
 
   /* --card-bg-gradient: radial-gradient(circle, rgba(45, 94, 12, 1) 0%, #013601 100%); */
   --card-bg-gradient: radial-gradient(circle, rgba(10, 50, 10, 0.85) 0%, #001f00 100%);
@@ -67,7 +71,10 @@ body {
 .text-secondary {
   color: var(--text-muted);
 }
-
+.skeleton-color {
+  background-color: var(--main-skeleton-bg);
+  border: var(--main-border);
+}
 
 .hide-scrollbar {
     -ms-overflow-style: none;  

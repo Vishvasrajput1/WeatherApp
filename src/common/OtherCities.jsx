@@ -108,7 +108,7 @@ const OtherCities = ({ city, isWeek = false }) => {
   }, [city]);
 
   return (
-    <div className='w-full  rounded-2xl px-4 space-y-4'>
+    <div className='w-full  rounded-2xl space-y-7.5'>
       <div className='flex justify-between items-center'>
         <h2 className='text-lg font-medium'>Other Cities</h2>
       </div>
@@ -121,18 +121,18 @@ const OtherCities = ({ city, isWeek = false }) => {
           No nearby cities found
         </div>
       ) : (
-        <div className={isWeek ? 'space-y-3' : 'grid grid-cols-2 gap-3'}>
+        <div className={isWeek ? 'space-y-6.75' : 'grid grid-cols-2 gap-3'}>
           {nearbyCities?.map((cityData, index) => {
             return isWeek ? (
               <div
                 key={index}
                 className='card-bg rounded-xl p-3 flex items-center justify-between'
               >
-                <div className='flex flex-col flex-1'>
-                  <span className='text-xs text-secondary mb-1'>
+                <div className='flex flex-col flex-1 space-y-3'>
+                  <span className='text-xs text-secondary'>
                     {cityData.country || cityData.region}
                   </span>
-                  <span className='text-base font-semibold mb-1'>
+                  <span className='text-base font-semibold '>
                     {cityData.name}
                   </span>
                   <span className='text-sm font-normal'>
@@ -143,7 +143,7 @@ const OtherCities = ({ city, isWeek = false }) => {
                   <img
                     src={getIconForWeather(cityData.icon)}
                     alt={cityData.description}
-                    className='w-12 h-12 object-contain'
+                    className='w-12.5 h-12.5 object-contain'
                   />
                 </div>
               </div>

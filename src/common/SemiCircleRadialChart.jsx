@@ -102,11 +102,16 @@ const SpeedometerChart = ({ data, isWeek = false }) => {
     <div
       style={{
         width: '100%',
-        height: window.innerWidth < 1024 ? 150 : 200,
+        height:
+          window.innerWidth >= 1440
+            ? 245
+            : window.innerWidth >= 1024
+            ? 150
+            : 100,
       }}
       className={`${
         isWeek ? 'card-bg' : 'child-card-bg'
-      }  rounded-[15px] 2xl:p-3 p-2`}
+      }  rounded-[15px] 2xl:p-3 p-2  py-3 2xl:space-y-4 space-y-3`}
     >
       <div>UV Index</div>
 
@@ -114,7 +119,7 @@ const SpeedometerChart = ({ data, isWeek = false }) => {
         width='100%'
         height='100%'
         maxHeight={
-          window.innerWidth > 1440 ? 120 : window.innerWidth >= 1024 ? 100 : 80
+          window.innerWidth >= 1440 ? 150 : window.innerWidth >= 1024 ? 100 : 80
         }
       >
         <PieChart>

@@ -6,17 +6,21 @@ export const VisibilityCard = ({ data, isWeek = false }) => {
     <div
       className={`${
         isWeek ? 'card-bg' : ' child-card-bg '
-      } w-full h-full rounded-[15px] 2xl:p-3 p-2 2xl:space-y-4 space-y-3`}
+      } w-full h-full rounded-[15px] 2xl:p-3 p-2 py-3 space-y-8`}
     >
       <div className='text-base'>Visibility</div>
       <div>
-        <img src={VisibilityImage} alt='cloud' className='w-20 h-20 mx-auto' />
+        <img
+          src={VisibilityImage}
+          alt='cloud'
+          className='w-22.5 h-22.5 mx-auto'
+        />
       </div>
-      <div className='flex justify-between 2xl:p-2 p-1'>
+      <div className='flex justify-between  p-1'>
         <span className='2xl:text-xl text-base font-semibold'>
           {data?.current?.visibility / 1000} km
         </span>
-        <span className='flex items-center 2xl:gap-2 gap-1 text-xs'>
+        <span className='flex items-center  gap-1 text-xs'>
           <FiEye />
           Haze is affecting visibility
         </span>

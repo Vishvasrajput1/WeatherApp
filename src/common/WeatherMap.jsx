@@ -23,18 +23,19 @@ const WeatherMap = ({ selectedCity }) => {
   const lon = selectedCity?.lon || 78;
 
   return (
-    <div className='w-full h-full rounded-2xl overflow-hidden shadow-lg border border-gray-200'>
+    <div className='w-full h-full rounded-2xl overflow-hidden shadow-lg xl:mt-15'>
       <MapContainer
         center={[lat, lon]}
         zoom={5}
         style={{
           height:
-            window.innerWidth > 1440
-              ? 522
+            window.innerWidth >= 1440
+              ? 520
               : window.innerWidth >= 1024
-              ? 484
-              : 300,
+              ? 454
+              : 270,
           width: '100%',
+          // marginTop: window.innerWidth >= 1440 ? 60 : 0,
         }}
       >
         <TileLayer

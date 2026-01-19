@@ -1,10 +1,10 @@
-import Skeleton from 'react-loading-skeleton';
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
 
 export const TodayOverviewSkeleton = ({ isWeek = false, isToday = false }) => {
   return (
     <div
       className={`w-full rounded-2xl ${
-        !isWeek ? 'card-bg 2xl:p-4 p-3 space-y-3' : 'space-y-7.5'
+        !isWeek ? 'skeleton-color  2xl:p-4 p-3 space-y-3' : 'space-y-7.5'
       }`}
     >
       <div className='h-7 w-30'>
